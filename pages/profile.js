@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Select from 'react-select';
 import TestUploader from '../components/TestUploader';
-import {
-  useAppContext
-} from '../context/Context';
+import { useAppContext } from '../context/Context';
 
 const yearOptions = [
   { value: 'freshman', label: 'Freshman' },
