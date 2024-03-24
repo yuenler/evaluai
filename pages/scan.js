@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useAppContext } from './context/Context';
+import { useAppContext } from '../context/Context';
 import { ThreeDots } from 'react-loader-spinner';
-import { storage } from './config/firebase-config';
+import { storage } from '../firebase-config';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import Select from 'react-select';
 import { useRouter } from 'next/router';

@@ -4,7 +4,7 @@ import Select from 'react-select';
 import TestUploader from '../components/TestUploader';
 import {
   useAppContext
-} from './context/Context';
+} from '../context/Context';
 
 const yearOptions = [
   { value: 'freshman', label: 'Freshman' },
