@@ -113,14 +113,14 @@ function Rubric() {
         </p>
         <button
           onClick={() => scanStudentTests()}
-          className="mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="mt-3 bg-blue-200 hover:bg-blue-300 text-white font-bold py-2 px-4 rounded"
         >
           Scan student tests
         </button>
       </div>
       <button
         onClick={handleAddQuestion}
-        className="mt-10 mb-4 bg-purple-500 hover:bg-purple-700 text-white font-bold py-1 px-2 rounded"
+        className="mt-10 mb-4 bg-purple-200 hover:bg-purple-300 text-white font-bold py-1 px-2 rounded"
       >
         Add Question number
       </button>
@@ -130,7 +130,7 @@ function Rubric() {
             <h2 className="text-xl font-semibold mb-2">{questionNumber}</h2>
             <button
               onClick={() => handleAddCriteria(questionNumber)}
-              className="mb-2 bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded"
+              className="mb-2 bg-green-300 hover:bg-green-400 text-white font-bold py-1 px-2 rounded"
             >
               Add Criteria
             </button>
@@ -172,13 +172,13 @@ function Rubric() {
                             setEditNames({ ...editNames, [`${questionNumber}-${criteria.criteria}`]: criteria.maxPoints });
                           }
                         }}
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mr-2"
+                        className="bg-blue-200 hover:bg-blue-300 text-white font-bold py-1 px-2 rounded mr-2"
                       >
                         {editState[`${questionNumber}-${criteria.criteria}`] ? 'Save' : 'Edit'}
                       </button>
                       <button
                         onClick={() => handleDelete(questionNumber, criteria.criteria)}
-                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
+                        className="bg-pink-200 hover:bg-pink-300 text-white font-bold py-1 px-2 rounded"
                       >
                         Delete
                       </button>
@@ -194,7 +194,7 @@ function Rubric() {
       )}
       <button
         onClick={() => scanStudentTests()}
-        className="mt-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="mt-10 bg-blue-200 hover:bg-blue-300 text-white font-bold py-2 px-4 rounded"
       >
         Scan Student Tests
       </button>
