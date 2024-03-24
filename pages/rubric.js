@@ -64,7 +64,8 @@ function Rubric() {
 
   const handleAddCriteria = (questionNumber) => {
     const criteria = prompt('Enter grading criteria:');
-    const maxPoints = prompt('Enter maximum number of points:');
+    const maxPoints = Number(prompt('Enter maximum number of points:'));
+
     if (!criteria || !maxPoints) return;
 
     const newCriteria = { criteria, maxPoints };
@@ -108,13 +109,13 @@ function Rubric() {
         <p
           className='text-lg mb-4'
         >
-          Look at the rubric extracted from your uploaded test. You can edit, delete, or add questions and grading criteria as needed. Once you've confirm your rubric, you can proceed to the next step and see whether you have met your concentration requirements.
+          Look at the rubric extracted from your uploaded test. You can edit, delete, or add questions and grading criteria as needed. Once you've confirm your rubric, you can proceed to the next step and grade student tests.
         </p>
         <button
           onClick={() => scanStudentTests()}
           className="mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
-          Upload student tests
+          Scan student tests
         </button>
       </div>
       <button

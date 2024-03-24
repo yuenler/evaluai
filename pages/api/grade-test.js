@@ -1,7 +1,6 @@
 // pages/api/requirements-fulfillment.js
 import 'dotenv/config'
 import OpenAI from 'openai';
-import getRequirements from './helpers/getRequirements';
 
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
@@ -14,13 +13,9 @@ export default async function handler(req, res) {
     apiKey: process.env['OPENAI_API_KEY'],
   });
 
-  const { rubric, year, subject, additionalInfo } = req.body;
-
-  const imageURL = 'https://images.unsplash.com/photo-1612838320302-4';
-
+  const { year, subject, additionalInfo, url, rubric } = req.body;
 
   const data = await new Promise(async (resolve, reject) => {
-    const requirements = getRequirements(concentration);
     try {
       const response = await openai.chat.completions.create({
         messages: [{
@@ -30,7 +25,8 @@ export default async function handler(req, res) {
               {
                 "type": "text", "text":
                   `
-              You are a teacher teaching a class of ${year} students. You are teaching ${subject}. 
+              You are a teacher teaching a class of ${year ? year : ''} students. 
+              ${subject ? `The subject is ${subject}.` : ''}
     
               ${additionalInfo ? `Additional information: ${additionalInfo}` : ''}
     
@@ -40,17 +36,26 @@ export default async function handler(req, res) {
     
               For example:
     
-              {
-                "Showed work": 0,
-                "Correct answer": 2,
-                "Used formula": 1
-              }
+              [
+                {
+                  "criteria": "Shows work",
+                  "score": 1
+                },
+                {
+                  "criteria": "Uses correct formula",
+                  "score": 0
+                },
+                {
+                  "criteria": "Correct answer",
+                  "score": 2
+                }
+              ]
               `
               },
               {
                 "type": "image_url",
                 "image_url": {
-                  "url": `${imageURL}`,
+                  "url": `${url}`,
                 },
               },
             ],
@@ -62,8 +67,8 @@ export default async function handler(req, res) {
       const responseText = response.choices[0].message.content
       console.log('OpenAI response:', responseText);
       // parse response for first and last bracket
-      const firstBracketIndex = responseText.indexOf('{');
-      const lastBracketIndex = responseText.lastIndexOf('}');
+      const firstBracketIndex = responseText.indexOf('[');
+      const lastBracketIndex = responseText.lastIndexOf(']');
       const jsonContent = responseText.slice(firstBracketIndex, lastBracketIndex + 1);
       // convert to JSON
       const json = JSON.parse(jsonContent);
