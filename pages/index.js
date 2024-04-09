@@ -10,7 +10,7 @@ export default function Home() {
           Welcome to the Test Grader
         </h1>
         <p className="text-lg text-indigo-100 mb-8">
-          Grade your tests now lol.
+          Grade your tests now!.
         </p>
         <button
           onClick={() => router.push('/profile')}
