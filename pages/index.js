@@ -7,10 +7,10 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-indigo-600">
       <div className="text-center">
         <h1 className="text-5xl font-bold text-white mb-4">
-          Welcome to the Test Grader
+          Welcome to EvaluAI!
         </h1>
         <p className="text-lg text-indigo-100 mb-8">
-          Grade your tests now!.
+          Grade your tests now. 
         </p>
         <button
           onClick={() => router.push('/profile')}
