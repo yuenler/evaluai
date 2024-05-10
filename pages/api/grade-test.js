@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     
               ${additionalInfo ? `Additional information: ${additionalInfo}` : ''}
     
-              Based on the following rubric and the uploaded image of the student's test, please provide a JSON object with the student's score for each criteria in the rubric.
+              Based on the following rubric and the uploaded image of the student's test, please provide a JSON object with the student's score for each criteria in the rubric. Do not provide any explanation besides the JSON object.
     
               Rubric: ${JSON.stringify(rubric)}
     

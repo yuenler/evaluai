@@ -46,10 +46,12 @@ function Rubric() {
   };
 
   const handleEdit = (questionNumber, questionCriteria, newValue) => {
+    console.log('Edit:', questionNumber, questionCriteria, newValue);
     const updatedRubric = { ...rubric };
     const index = updatedRubric[questionNumber].findIndex(criteria => criteria.criteria === questionCriteria);
+    console.log('Index:', index);
     if (index !== -1) {
-      updatedRubric[questionNumber][index].name = newValue;
+      updatedRubric[questionNumber][index].maxPoints = newValue;
       setRubric(updatedRubric);
       toggleEdit(questionNumber, questionCriteria); // Toggle off edit mode
     }
