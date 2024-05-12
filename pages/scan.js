@@ -77,7 +77,7 @@ function ScanTests() {
   const gradeIt = async (url, questionNumber) => {
     try {
       setLoading(true);
-      const response = await fetch('/api/grade-test', {
+      const response = await fetch('https://evaluai.vercel.app/api/grade-test', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

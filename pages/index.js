@@ -10,8 +10,7 @@ export default function Home() {
           Welcome to EvaluAI!
         </h1>
         <p className="text-lg text-indigo-100 mb-8">
-          Grade your tests now. 
-        </p>
+        AI Test Grader: Instant, unbiased analysis and grading for teachers, saving time and providing fair, insightful feedback to students.</p>
         <button
           onClick={() => router.push('/profile')}
           className="bg-white text-indigo-600 font-semibold py-2 px-4 border border-transparent rounded-lg shadow-sm hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out"

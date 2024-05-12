@@ -21,7 +21,7 @@ function Rubric() {
 
       const formData = new FormData();
       formData.append('file', test);
-      const response = await fetch('/api/create-rubric', {
+      const response = await fetch('https://evaluai.vercel.app/api/create-rubric', {
         method: 'POST',
         body: formData,
       });
